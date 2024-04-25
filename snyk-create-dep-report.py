@@ -10,7 +10,6 @@ import requests
 import csv
 from tqdm import tqdm
 
-
 def write_csv(data_list, org_slug, proj_id, proj_name, report_type):
     # Write data to CSV file in dep_reports directory
     os.makedirs('dep_reports', exist_ok=True)
@@ -117,7 +116,6 @@ def get_poject_data(driver, isTransitive, useDeprecatedFilter,
 
     orgs = client.organizations.all()
     num_orgs = len(orgs)
-    # for org in orgs:
     for org in tqdm(orgs, desc='Organizations', unit='org', total=num_orgs):
         org_id = org.id
         org_slug = org.slug
